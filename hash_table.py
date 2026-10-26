@@ -91,4 +91,30 @@ class HashTable:
                 current = current.next
             print(f"Index {index}: {' '.join(contacts)}")
 
-# Test your hash table implementation here.  
+# Test your hash table implementation here.
+
+# Reflection
+# A hash table is useful for fast lookups because it transforms a key—in this
+# project, a contact’s name—into an array index. Instead of checking every
+# contact one by one, as a list search may need to do, the program can usually
+# go directly to the relevant slot and inspect only the entries stored there.
+# With a well-distributed hash function, lookup, insertion, and updating are
+# typically close to constant time on average. This performance depends on
+# choosing a suitable table size and hash function; collisions and poor key
+# distribution can increase the amount of work.
+#
+# This implementation handles collisions with separate chaining. Each array
+# slot stores either None or the first Node in a linked list. When another name
+# maps to that same index, a new Node is appended to the chain. Searching visits
+# the chain and compares keys, while inserting an existing name updates that
+# contact’s number rather than adding a duplicate. This keeps every contact
+# available even when multiple names share an index.
+#
+# An engineer might choose a hash table when fast exact-key lookups are
+# important, such as finding a contact by name, retrieving a cached result, or
+# locating a record by ID. A list can be simpler when the collection is small
+# or ordering and sequential access matter more than lookup speed. A tree is
+# often a better fit when keys must stay sorted, range queries are needed, or
+# predictable worst-case lookup performance is important. The right structure
+# depends on how data will be accessed and what guarantees the application
+# requires.
