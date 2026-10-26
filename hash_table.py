@@ -5,8 +5,13 @@ class Contact:
         name (str): The name of the contact.
         number (str): The phone number of the contact.
     '''
-    
-    pass # Delete this line when implementing the class
+
+    def __init__(self, name: str, number: str):
+        self.name = name
+        self.number = number
+
+    def __str__(self) -> str:
+        return f"{self.name}: {self.number}"
 
 class Node:
     '''
