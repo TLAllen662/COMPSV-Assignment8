@@ -21,8 +21,11 @@ class Node:
         value (Contact): The value (Contact object) associated with the key.
         next (Node): Pointer to the next node in case of a collision.
     '''
-   
-    pass # Delete this line when implementing the class
+
+    def __init__(self, key: str, value: Contact):
+        self.key = key
+        self.value = value
+        self.next = None
 
 class HashTable:
     '''
